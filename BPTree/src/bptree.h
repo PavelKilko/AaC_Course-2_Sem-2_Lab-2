@@ -190,8 +190,7 @@ void BPTree<Type>::insert(Type x) {
 }
 
 template <class Type>
-void BPTree<Type>::insert_internal(Type x,
-																	 BPNode<Type> *tmp,
+void BPTree<Type>::insert_internal(Type x, BPNode<Type> *tmp,
 																	 BPNode<Type> *child) {
 	if (tmp->size < MAX) {
 		size_t i = 0;

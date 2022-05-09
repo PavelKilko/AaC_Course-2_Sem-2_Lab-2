@@ -1,3 +1,6 @@
 [submodule "BPTree/tests/googletest"]
 	path = BPTree/tests/googletest
 	url = https://github.com/google/googletest.git
+[submodule "SplayTree/tests/googletest"]
+	path = SplayTree/tests/googletest
+	url = https://github.com/google/googletest.git
