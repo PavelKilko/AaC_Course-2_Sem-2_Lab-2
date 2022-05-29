@@ -1,21 +1,23 @@
-
 #include "src/bptree.h"
 #include <complex>
 
+
+
 int main() {
 	BPTree<std::complex<int>> node;
-	node.insert(5);
-	node.insert(15);
-	node.insert(25);
-	node.insert(35);
-	node.insert(45);
-	node.insert(55);
-	node.insert(40);
-	node.insert(30);
-	node.insert(20);
+	node.insert(std::complex<int>(53, 50));
+	node.insert(std::complex<int>(56, 58));
+	node.insert(std::complex<int>(43, 1));
+	node.insert(std::complex<int>(98, 29));
+	node.insert(std::complex<int>(48, 47));
+	node.insert(std::complex<int>(21, 37));
+	node.insert(std::complex<int>(89, 43));
+	node.insert(std::complex<int>(36, 31));
+	node.insert(std::complex<int>(14, 44));
 	node.display(node.get_root());
-	node.remove(45);
+	std::cout << node.contains(std::complex<int>(89, 43)) << std::endl;
+	node.remove(std::complex<int>(89, 43));
 	node.display(node.get_root());
-//	std::cout << node.contains(15);
+	std::cout << node.contains(std::complex<int>(89, 43)) << std::endl;
 	return 0;
 }

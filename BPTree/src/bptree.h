@@ -83,7 +83,7 @@ public:
 	bool contains(Type x);
 	void insert(Type x);
 	void remove(Type x);
-	void display(BPNode<Type>* tmp);
+	void display(BPNode<Type>* tmp, int step = 0);
 	BPNode<Type>* get_root();
 };
 
@@ -496,18 +496,30 @@ void BPTree<Type>::remove_internal(Type x,
 }
 
 template <class Type>
-void BPTree<Type>::display(BPNode<Type>* tmp) {
+void BPTree<Type>::display(BPNode<Type>* tmp, int step) {
 	if (tmp) {
+		if (!step)
+			std::cout << "root";
 		if (tmp->isLeaf)
-			std::cout << "LEAF [";
+			std::cout << "leaf < ";
+		else
+			std::cout << "node < ";
+		
 		for (size_t i = 0; i < tmp->size; i++)
 			std::cout << tmp->key[i] << " ";
-		if (tmp->isLeaf)
-			std::cout << "]";
-		std::cout << "\n";
+		std::cout << ">";
+		
 		if (tmp->isLeaf != true)
-			for (size_t i = 0; i < tmp->size + 1; i++)
-				display(tmp->ptr[i]);
+		{
+			std::cout << " {\n";
+			for (size_t i = 0; i < tmp->size + 1; i++) {
+				for (int i = 0; i <= step; i++)
+					std::cout << "| ";
+				display(tmp->ptr[i], step + 1);
+			}
+			std::cout << "}";
+		}
+		std::cout << "\n";
 	}
 }
 
